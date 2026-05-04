@@ -95,6 +95,18 @@
       "status": "wip",
       "description": "A server focused on observability and control first, with compatibility planned as a later phase.",
       "forkNote": "This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance."
+    },
+    {
+      "name": "Celervo",
+      "url": "https://github.com/mudkipdev/celervo",
+      "sourceLabel": "GitHub",
+      "compliance": "experimental",
+      "language": "rust",
+      "type": "reimplementation",
+      "mcVersion": "26.x",
+      "status": "wip",
+      "description": "Celervo focuses on speed, simplicity, and low-level control while remaining compatible with the vanilla Minecraft protocol.",
+      "forkNote": null
     }
   ]
 }
