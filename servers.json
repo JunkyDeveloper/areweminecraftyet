@@ -107,6 +107,18 @@
       "status": "wip",
       "description": "Celervo focuses on speed, simplicity, and low-level control while remaining compatible with the vanilla Minecraft protocol.",
       "forkNote": null
+    },
+    {
+      "name": "SteelMc",
+      "url": "https://steelmc.dev",
+      "sourceLabel": "Website",
+      "compliance": "experimental",
+      "language": "rust",
+      "type": "reimplementation",
+      "mcVersion": "26.1",
+      "status": "wip",
+      "description": "Steel is a lightweight Rust implementation of the Minecraft server. It focuses on clean code, performance, extensibility, and ease of use.",
+      "forkNote": null
     }
   ]
 }
