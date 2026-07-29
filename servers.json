@@ -109,13 +109,13 @@
       "forkNote": null
     },
     {
-      "name": "SteelMc",
+      "name": "SteelMC",
       "url": "https://steelmc.dev",
       "sourceLabel": "Website",
       "compliance": "experimental",
       "language": "rust",
       "type": "reimplementation",
-      "mcVersion": "26.1",
+      "mcVersion": "26.2",
       "status": "wip",
       "description": "Steel is a lightweight Rust implementation of the Minecraft server. It focuses on clean code, performance, extensibility, and ease of use.",
       "forkNote": null
