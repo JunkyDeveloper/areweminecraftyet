@@ -83,7 +83,7 @@ function buildCards() {
         card.dataset.type = s.type;
 
         const forkNoteHTML = s.forkNote
-            ? `<div class="card-fork-note">&#9888; ${s.forkNote}</div>`
+            ? `<div class="card-fork-note">&#9888; This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance.</div>`
             : "";
         const complianceLabel = COMPLIANCE_LABELS[s.compliance] ?? "Unknown";
         const complianceScore = s.complianceScore;

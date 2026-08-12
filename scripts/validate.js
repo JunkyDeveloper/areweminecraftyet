@@ -137,8 +137,8 @@ data.servers.forEach((s, i) => {
     errors.push(`${id}: "status" must be one of [${VALID_STATUSES.join(", ")}], got "${s.status}".`);
   }
 
-  if (s.forkNote !== null && typeof s.forkNote !== "string") {
-    errors.push(`${id}: "forkNote" must be a string or null.`);
+  if (s.forkNote !== false && s.forkNote !== true) {
+    errors.push(`${id}: "forkNote" must be a boolean.`);
   }
 
   try {

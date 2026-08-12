@@ -10,7 +10,7 @@
       "mcVersion": "1.20.1",
       "status": "inactive",
       "description": "A Minestom extension working toward full vanilla behavior reimplementation.",
-      "forkNote": null
+      "forkNote": false
     },
     {
       "id": "minestom-vibenilla",
@@ -22,7 +22,7 @@
       "mcVersion": "1.21.11",
       "status": "inactive",
       "description": "Another Minestom-based server aiming for vanilla compliance.",
-      "forkNote": null
+      "forkNote": false
     },
     {
       "id": "pumpkin",
@@ -34,7 +34,7 @@
       "mcVersion": "1.21.8",
       "status": "active",
       "description": "A Minecraft server built entirely in Rust, offering a fast, efficient, and customizable experience. It prioritizes performance and player enjoyment while adhering to the core mechanics of the game.",
-      "forkNote": null
+      "forkNote": false
     },
     {
       "id": "paper",
@@ -46,7 +46,7 @@
       "mcVersion": "1.21.x",
       "status": "active",
       "description": "A widely-used Spigot fork that intentionally diverges from vanilla behavior for performance and gameplay improvements.",
-      "forkNote": "This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance."
+      "forkNote": true
     },
     {
       "id": "ferrumc",
@@ -58,7 +58,7 @@
       "mcVersion": "1.21.8",
       "status": "active",
       "description": "A 1.21.8 Minecraft server implementation written from the ground up in Rust. Leveraging the power of the Rust programming language, it is completely multithreaded and offers high performance as well as amazing memory efficiency.",
-      "forkNote": null
+      "forkNote": false
     },
     {
       "id": "obsidian",
@@ -70,7 +70,7 @@
       "mcVersion": "1.21.8",
       "status": "active",
       "description": "A C# .NET implementation of the Minecraft server protocol.",
-      "forkNote": null
+      "forkNote": false
     },
     {
       "id": "vectoraserver",
@@ -82,7 +82,7 @@
       "mcVersion": "1.21.11",
       "status": "inactive",
       "description": "A high-performance custom Minecraft Java Edition 1.21.11 server written in modern C++20.",
-      "forkNote": null
+      "forkNote": false
     },
     {
       "id": "wrench",
@@ -94,7 +94,7 @@
       "mcVersion": "1.21.11",
       "status": "wip",
       "description": "A server focused on observability and control first, with compatibility planned as a later phase.",
-      "forkNote": "This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance."
+      "forkNote": true
     },
     {
       "id": "celervo",
@@ -106,7 +106,7 @@
       "mcVersion": "26.x",
       "status": "inactive",
       "description": "Celervo focuses on speed, simplicity, and low-level control while remaining compatible with the vanilla Minecraft protocol.",
-      "forkNote": null
+      "forkNote": false
     },
     {
       "id": "steelmc",
@@ -118,7 +118,7 @@
       "mcVersion": "26.2",
       "status": "active",
       "description": "Steel is a lightweight Rust implementation of the Minecraft server. It focuses on clean code, performance, extensibility, and ease of use.",
-      "forkNote": null
+      "forkNote": false
     }
   ]
 }

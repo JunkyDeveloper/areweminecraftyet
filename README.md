@@ -41,8 +41,7 @@ Make sure to update `servers.json` with the following syntax
   - `active` — consistent activity within the last month.
   - `wip` — consistent activity in the last 2 months.
   - `inactive` — no consistent activity for >= 4 months.
-- If you are adding a fork, you must add the following text to `forkNotice`:
-  - `This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance.`
+- If you are adding a fork, you must set `forkNotice` to `true`, otherwise you must set it to `false`.
 
 ### Thanks
 - [GoldenStack](https://github.com/GoldenStack) For the inspiration with [dayssincelastrustmcserver](https://github.com/GoldenStack/dayssincelastrustmcserver).
