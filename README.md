@@ -38,9 +38,9 @@ Make sure to update `servers.json` with the following syntax
 - If you include a new language, you must add it to line 1 of `script.js` and line 6 of `validate.js`
 - `type` must be either `reimplementation` or `fork`
 - `status` must be one of:
-  - `active`
-  - `wip`
-  - `abandoned`
+  - `active` — consistent activity within the last month.
+  - `wip` — consistent activity in the last 2 months.
+  - `inactive` — no consistent activity for >= 4 months.
 - If you are adding a fork, you must add the following text to `forkNotice`:
   - `This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance.`
 
@@ -49,3 +49,4 @@ Make sure to update `servers.json` with the following syntax
 - [kermandev](https://github.com/kermandev) For the original [areweminecraftyet](https://github.com/kermandev/areweminecraftyet).
 - [PumpkinMC](https://github.com/Pumpkin-MC/Pumpkin) for the feature list.
 - Everyone attempting to reimplement vanilla.
+- 

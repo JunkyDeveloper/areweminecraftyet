@@ -1,5 +1,5 @@
 const LANG_LABELS = { java: "Java", rust: "Rust", go: "Go", cpp: "C++", csharp: "C#" };
-const STATUS_LABELS = { active: "Active", wip: "WIP", abandoned: "Abandoned" };
+const STATUS_LABELS = { active: "Active", wip: "WIP", inactive: "Inactive" };
 const TYPE_LABELS = { reimplementation: "Reimplementation", fork: "Fork" };
 const COMPLIANCE_LABELS = {
     full: "Full",

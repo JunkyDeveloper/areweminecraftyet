@@ -8,7 +8,7 @@
       "language": "java",
       "type": "reimplementation",
       "mcVersion": "1.20.1",
-      "status": "wip",
+      "status": "inactive",
       "description": "A Minestom extension working toward full vanilla behavior reimplementation.",
       "forkNote": null
     },
@@ -20,7 +20,7 @@
       "language": "java",
       "type": "reimplementation",
       "mcVersion": "1.21.11",
-      "status": "wip",
+      "status": "inactive",
       "description": "Another Minestom-based server aiming for vanilla compliance.",
       "forkNote": null
     },
@@ -32,7 +32,7 @@
       "language": "rust",
       "type": "reimplementation",
       "mcVersion": "1.21.8",
-      "status": "wip",
+      "status": "active",
       "description": "A Minecraft server built entirely in Rust, offering a fast, efficient, and customizable experience. It prioritizes performance and player enjoyment while adhering to the core mechanics of the game.",
       "forkNote": null
     },
@@ -56,7 +56,7 @@
       "language": "rust",
       "type": "reimplementation",
       "mcVersion": "1.21.8",
-      "status": "wip",
+      "status": "active",
       "description": "A 1.21.8 Minecraft server implementation written from the ground up in Rust. Leveraging the power of the Rust programming language, it is completely multithreaded and offers high performance as well as amazing memory efficiency.",
       "forkNote": null
     },
@@ -68,7 +68,7 @@
       "language": "csharp",
       "type": "reimplementation",
       "mcVersion": "1.21.8",
-      "status": "wip",
+      "status": "active",
       "description": "A C# .NET implementation of the Minecraft server protocol.",
       "forkNote": null
     },
@@ -80,7 +80,7 @@
       "language": "cpp",
       "type": "reimplementation",
       "mcVersion": "1.21.11",
-      "status": "wip",
+      "status": "inactive",
       "description": "A high-performance custom Minecraft Java Edition 1.21.11 server written in modern C++20.",
       "forkNote": null
     },
@@ -104,7 +104,7 @@
       "language": "rust",
       "type": "reimplementation",
       "mcVersion": "26.x",
-      "status": "wip",
+      "status": "inactive",
       "description": "Celervo focuses on speed, simplicity, and low-level control while remaining compatible with the vanilla Minecraft protocol.",
       "forkNote": null
     },
@@ -116,7 +116,7 @@
       "language": "rust",
       "type": "reimplementation",
       "mcVersion": "26.2",
-      "status": "wip",
+      "status": "active",
       "description": "Steel is a lightweight Rust implementation of the Minecraft server. It focuses on clean code, performance, extensibility, and ease of use.",
       "forkNote": null
     }

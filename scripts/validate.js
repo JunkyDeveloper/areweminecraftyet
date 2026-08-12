@@ -5,7 +5,7 @@ const path = require("path");
 
 const VALID_LANGUAGES = ["java", "rust", "go", "cpp", "csharp"];
 const VALID_TYPES = ["reimplementation", "fork"];
-const VALID_STATUSES = ["active", "wip", "abandoned"];
+const VALID_STATUSES = ["active", "wip", "inactive"];
 
 const rootDir = path.join(__dirname, "..");
 const filePath = path.join(rootDir, "servers.json");
