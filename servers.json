@@ -1,10 +1,10 @@
 {
   "servers": [
     {
+      "id": "minestom-vri",
       "name": "Minestom VRI",
       "url": "https://github.com/Minestom/VanillaReimplementation/",
       "sourceLabel": "GitHub",
-      "compliance": "experimental",
       "language": "java",
       "type": "reimplementation",
       "mcVersion": "1.20.1",
@@ -13,10 +13,10 @@
       "forkNote": null
     },
     {
+      "id": "minestom-vibenilla",
       "name": "Minestom Vibenilla",
       "url": "https://github.com/vibenilla/server",
       "sourceLabel": "GitHub",
-      "compliance": "experimental",
       "language": "java",
       "type": "reimplementation",
       "mcVersion": "1.21.11",
@@ -25,10 +25,10 @@
       "forkNote": null
     },
     {
+      "id": "pumpkin",
       "name": "Pumpkin",
       "url": "https://github.com/Pumpkin-MC/Pumpkin",
       "sourceLabel": "GitHub",
-      "compliance": "partial",
       "language": "rust",
       "type": "reimplementation",
       "mcVersion": "1.21.8",
@@ -37,10 +37,10 @@
       "forkNote": null
     },
     {
+      "id": "paper",
       "name": "Paper",
       "url": "https://github.com/PaperMC/Paper",
       "sourceLabel": "GitHub",
-      "compliance": "forked",
       "language": "java",
       "type": "fork",
       "mcVersion": "1.21.x",
@@ -49,10 +49,10 @@
       "forkNote": "This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance."
     },
     {
+      "id": "ferrumc",
       "name": "FerrumC",
       "url": "https://github.com/ferrumc-rs/ferrumc",
       "sourceLabel": "GitHub",
-      "compliance": "experimental",
       "language": "rust",
       "type": "reimplementation",
       "mcVersion": "1.21.8",
@@ -61,10 +61,10 @@
       "forkNote": null
     },
     {
+      "id": "obsidian",
       "name": "Obsidian",
       "url": "https://github.com/ObsidianMC/Obsidian",
       "sourceLabel": "GitHub",
-      "compliance": "partial",
       "language": "csharp",
       "type": "reimplementation",
       "mcVersion": "1.21.8",
@@ -73,10 +73,10 @@
       "forkNote": null
     },
     {
+      "id": "vectoraserver",
       "name": "VectoraServer",
       "url": "https://github.com/Hardrivetech/VectoraServer",
       "sourceLabel": "GitHub",
-      "compliance": "experimental",
       "language": "cpp",
       "type": "reimplementation",
       "mcVersion": "1.21.11",
@@ -85,10 +85,10 @@
       "forkNote": null
     },
     {
+      "id": "wrench",
       "name": "Wrench",
       "url": "https://github.com/KohanMathers/Wrench",
       "sourceLabel": "GitHub",
-      "compliance": "forked",
       "language": "java",
       "type": "fork",
       "mcVersion": "1.21.11",
@@ -97,10 +97,10 @@
       "forkNote": "This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance."
     },
     {
+      "id": "celervo",
       "name": "Celervo",
       "url": "https://github.com/mudkipdev/celervo",
       "sourceLabel": "GitHub",
-      "compliance": "experimental",
       "language": "rust",
       "type": "reimplementation",
       "mcVersion": "26.x",
@@ -109,10 +109,10 @@
       "forkNote": null
     },
     {
+      "id": "steelmc",
       "name": "SteelMC",
       "url": "https://steelmc.dev",
       "sourceLabel": "Website",
-      "compliance": "experimental",
       "language": "rust",
       "type": "reimplementation",
       "mcVersion": "26.2",

@@ -8,17 +8,68 @@ const COMPLIANCE_LABELS = {
     experimental: "Experimental",
     forked: "Forked",
 };
-const COMPLIANCE_SCORES = {
-    full: 100,
-    mostly: 75,
-    partial: 40,
-    experimental: 15,
-    forked: 0,
-};
-
 let activeLang = "all";
 let activeType = "all";
 let SERVERS = [];
+
+function parseFeaturesYAML(text) {
+    const features = { complete: [], inDev: [], incomplete: [] };
+    let currentKey = null;
+
+    text.split("\n").forEach(line => {
+        if (!line.trim()) return;
+
+        const keyMatch = line.match(/^- (\w+):\s*$/);
+        if (keyMatch) {
+            currentKey = keyMatch[1];
+            return;
+        }
+
+        const itemMatch = line.match(/^\s+- (\S+)\s*$/);
+        if (itemMatch && currentKey && features[currentKey]) {
+            features[currentKey].push(itemMatch[1]);
+        }
+    });
+
+    return features;
+}
+
+function scoreToTier(score) {
+    if (score >= 100) return "full";
+    if (score >= 90) return "mostly";
+    if (score > 25) return "partial";
+    return "experimental";
+}
+
+function computeCompliance(features) {
+    const total = features.complete.length + features.inDev.length + features.incomplete.length;
+    if (total === 0) return null;
+
+    const points = features.complete.length + features.inDev.length * 0.5;
+    const score = (points / total) * 100;
+
+    return { score, compliance: scoreToTier(score) };
+}
+
+async function loadServerCompliance(server) {
+    server.compliance = server.type === "fork" ? "forked" : "experimental";
+    server.complianceScore = 0;
+
+    if (server.type === "fork") return;
+
+    try {
+        const res = await fetch(`servers/${server.id}.yaml`);
+        if (!res.ok) return;
+
+        const result = computeCompliance(parseFeaturesYAML(await res.text()));
+        if (!result) return;
+
+        server.complianceScore = result.score;
+        server.compliance = result.compliance;
+    } catch (err) {
+        console.error(`Failed to load features for ${server.id}:`, err);
+    }
+}
 
 function buildCards() {
     const grid = document.getElementById("servers-grid");
@@ -35,7 +86,8 @@ function buildCards() {
             ? `<div class="card-fork-note">&#9888; ${s.forkNote}</div>`
             : "";
         const complianceLabel = COMPLIANCE_LABELS[s.compliance] ?? "Unknown";
-        const complianceScore = COMPLIANCE_SCORES[s.compliance] ?? 0;
+        const complianceScore = s.complianceScore;
+        const complianceDisplay = complianceScore.toFixed(1).replace(/\.0$/, "");
 
         card.innerHTML = `
             <div class="card-top ${s.compliance === "full" ? "compliant" : ""}"></div>
@@ -49,8 +101,11 @@ function buildCards() {
                     <span class="badge badge-compliance badge-compliance-${s.compliance}">Compliance: ${complianceLabel}</span>
                 </div>
                 <p class="card-desc">${s.description}</p>
-                <div class="compliance-meter" aria-hidden="true">
-                    <span class="compliance-fill compliance-${s.compliance}" style="width: ${complianceScore}%;"></span>
+                <div class="compliance-meter-row">
+                    <div class="compliance-meter" aria-hidden="true">
+                        <span class="compliance-fill compliance-${s.compliance}" style="width: ${complianceScore}%;"></span>
+                    </div>
+                    <span class="compliance-percent">${complianceDisplay}%</span>
                 </div>
                 ${forkNoteHTML}
             </div>
@@ -113,8 +168,9 @@ document.querySelectorAll("[data-filter-type]").forEach(btn => {
 
 fetch("servers.json")
     .then(r => r.json())
-    .then(data => {
+    .then(async data => {
         SERVERS = data.servers;
+        await Promise.all(SERVERS.map(loadServerCompliance));
         buildCards();
         updateVerdict();
     });

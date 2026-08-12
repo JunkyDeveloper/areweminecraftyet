@@ -470,12 +470,26 @@ main {
     flex: 1;
 }
 
+.compliance-meter-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .compliance-meter {
+    flex: 1;
     height: 8px;
     background: #14171a;
     border: 1px solid var(--border);
     border-radius: 999px;
     overflow: hidden;
+}
+
+.compliance-percent {
+    font-size: 11px;
+    color: var(--muted);
+    min-width: 34px;
+    text-align: right;
 }
 
 .compliance-fill {

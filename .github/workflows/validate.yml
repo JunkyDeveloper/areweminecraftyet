@@ -4,9 +4,11 @@ on:
   pull_request:
     paths:
       - "servers.json"
+      - "servers/**"
   push:
     paths:
       - "servers.json"
+      - "servers/**"
 
 jobs:
   validate:
