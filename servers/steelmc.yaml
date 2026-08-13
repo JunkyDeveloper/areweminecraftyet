@@ -3,8 +3,10 @@
     - protocol-handshake
     - protocol-encryption
     - protocol-compression
+    - protocol-timeout
     - world-physics
     - world-state
+    - world-persistence
     - worldgen
     - player-movement
     - player-state
@@ -53,8 +55,6 @@
     - cmd-xp
 
 - inDev:
-    - protocol-timeout
-    - world-persistence
     - redstone
     - world-hud
     - player-progression
