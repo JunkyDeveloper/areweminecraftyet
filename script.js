@@ -55,11 +55,19 @@ function scoreToTier(score) {
     return "experimental";
 }
 
+function featureWeight(id) {
+    return FEATURES_BY_ID[id]?.weight ?? 1;
+}
+
+function sumWeights(ids) {
+    return ids.reduce((sum, id) => sum + featureWeight(id), 0);
+}
+
 function computeCompliance(features) {
-    const total = features.complete.length + features.inDev.length + features.incomplete.length;
+    const total = sumWeights(features.complete) + sumWeights(features.inDev) + sumWeights(features.incomplete);
     if (total === 0) return null;
 
-    const points = features.complete.length + features.inDev.length * 0.5;
+    const points = sumWeights(features.complete) + sumWeights(features.inDev) * 0.5;
     const score = (points / total) * 100;
 
     return { score, compliance: scoreToTier(score) };

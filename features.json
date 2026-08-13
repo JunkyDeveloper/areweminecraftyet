@@ -5,7 +5,8 @@
     "description": "Server configuration file (e.g. TOML) covering server.properties-equivalent settings.",
     "category": "server",
     "subCategory": "config",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.4
   },
   {
     "id": "protocol-handshake",
@@ -13,7 +14,8 @@
     "description": "Handshake state and Server List Ping / Status protocol for pre-login server info.",
     "category": "networking",
     "subCategory": "protocol",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.3
   },
   {
     "id": "protocol-encryption",
@@ -21,7 +23,8 @@
     "description": "Login encryption using AES/CFB8 with RSA-1024 handshake, per Java Edition protocol.",
     "category": "networking",
     "subCategory": "protocol",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.6
   },
   {
     "id": "protocol-compression",
@@ -29,7 +32,8 @@
     "description": "Zlib/Deflate packet compression negotiated after login.",
     "category": "networking",
     "subCategory": "protocol",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.4
   },
   {
     "id": "protocol-timeout",
@@ -37,7 +41,8 @@
     "description": "Timeouts to prevent clients from stalling indefinitely in login or other sequences.",
     "category": "networking",
     "subCategory": "protocol",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "admin-remote",
@@ -45,7 +50,8 @@
     "description": "Query and RCON protocols for out-of-band server administration.",
     "category": "networking",
     "subCategory": "admin",
-    "compliance": "optional"
+    "compliance": "optional",
+    "weight": 0.3
   },
   {
     "id": "world-persistence",
@@ -53,7 +59,8 @@
     "description": "World loading and saving for the Overworld, Nether (DIM-1), and End (DIM1), including level.dat.",
     "category": "world",
     "subCategory": "storage",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.6
   },
   {
     "id": "chunk-io",
@@ -61,7 +68,8 @@
     "description": "Chunk read/write support using the vanilla Anvil region storage format.",
     "category": "world",
     "subCategory": "storage",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.75
   },
   {
     "id": "worldgen",
@@ -69,7 +77,8 @@
     "description": "Full chunk generation pipeline: RNG (Xoroshiro128 and legacy), biome maps (Overworld/Nether/End), noise-based terrain shaping, surface rules, bedrock layer, superflat generation, carvers (caves/ravines), decorative features, ore veins, and structures (villages, strongholds, monuments, fortresses, End cities, etc.) and structure-like features (dungeons, geodes, ice spikes, etc.).",
     "category": "world",
     "subCategory": "generation",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 1.0
   },
   {
     "id": "world-physics",
@@ -77,7 +86,8 @@
     "description": "Liquid physics (water/lava flow) and the lighting engine.",
     "category": "world",
     "subCategory": "physics",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.7
   },
   {
     "id": "redstone",
@@ -85,7 +95,8 @@
     "description": "Full redstone system: signal propagation and update order, hard/soft power logic, redstone tick system, sensors (pressure plates, tripwire, sculk, daylight detector), timing components (repeater, comparator, observer), mechanisms (piston, dropper, dispenser, hopper, crafter, TNT, minecarts), and utility blocks (bell, lamp, doors, lectern, composter, note block).",
     "category": "world",
     "subCategory": "logic",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "world-state",
@@ -93,7 +104,8 @@
     "description": "World time, world border, and world join/leave lifecycle handling.",
     "category": "world",
     "subCategory": "state",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "world-hud",
@@ -101,7 +113,8 @@
     "description": "Player tab-list, scoreboard, and bossbar synchronization.",
     "category": "world",
     "subCategory": "state",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.12
   },
   {
     "id": "entity-spawning",
@@ -109,7 +122,8 @@
     "description": "Natural and rule-based entity spawning within the world.",
     "category": "world",
     "subCategory": "state",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.38
   },
   {
     "id": "player-movement",
@@ -117,7 +131,8 @@
     "description": "Walking, sprinting, crouching, teleportation, animations, elytra flight, swimming/crawling states, and fall damage calculation.",
     "category": "player",
     "subCategory": "movement",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.6
   },
   {
     "id": "player-state",
@@ -125,7 +140,8 @@
     "description": "Experience/leveling, hunger and saturation, eating/drinking, health regeneration, drowning, player attributes, and game mode switching.",
     "category": "player",
     "subCategory": "state",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.6
   },
   {
     "id": "player-inventory",
@@ -133,7 +149,8 @@
     "description": "Main inventory management, off-hand support, skins/property handling, armor and equipment visibility, and item cooldowns.",
     "category": "player",
     "subCategory": "inventory",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.5
   },
   {
     "id": "player-progression",
@@ -141,7 +158,8 @@
     "description": "Advancements, statistics, recipe/recipe book unlocking, and player capabilities (creative flight, invulnerability).",
     "category": "player",
     "subCategory": "progression",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.4
   },
   {
     "id": "player-other",
@@ -149,7 +167,8 @@
     "description": "Chat signing/secure chat, tab-list formatting/headers, and command permission levels/nodes.",
     "category": "player",
     "subCategory": "session",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.4
   },
   {
     "id": "combat-core",
@@ -157,7 +176,8 @@
     "description": "Melee attack logic, tool-based damage scaling, vanilla knockback, and attack speed/cooldown timing.",
     "category": "combat",
     "subCategory": "core",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.6
   },
   {
     "id": "combat-equipment",
@@ -165,7 +185,8 @@
     "description": "Bows, crossbows, shields, and tridents, including charging, loading, blocking, and thrown/melee states.",
     "category": "combat",
     "subCategory": "equipment",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.5
   },
   {
     "id": "combat-mechanics",
@@ -173,7 +194,8 @@
     "description": "Critical hits, invulnerability frames, sweep attacks, and enchantment/status effect integration in damage calculation.",
     "category": "combat",
     "subCategory": "mechanics",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.6
   },
   {
     "id": "entity-types",
@@ -181,7 +203,8 @@
     "description": "Non-living entities (minecarts, thrown items), players, mobs, animals, villagers, and boss entities, including entity effects and saving.",
     "category": "entities",
     "subCategory": "core",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.6
   },
   {
     "id": "ai-look-control",
@@ -189,7 +212,8 @@
     "description": "Head movement and look-at-target control for entities.",
     "category": "entities",
     "subCategory": "ai-controller",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "ai-navigation",
@@ -197,7 +221,8 @@
     "description": "A*-based pathfinding navigation used to route entity movement through the world.",
     "category": "entities",
     "subCategory": "ai-controller",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.45
   },
   {
     "id": "ai-jump-control",
@@ -205,7 +230,8 @@
     "description": "Controls entity jumping behavior, including jumping over obstacles along a path.",
     "category": "entities",
     "subCategory": "ai-controller",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "ai-move-control",
@@ -213,7 +239,8 @@
     "description": "Applies velocity toward the current pathfinding target.",
     "category": "entities",
     "subCategory": "ai-controller",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "goal-move-to-block",
@@ -221,7 +248,8 @@
     "description": "Moves an entity toward a specific target block.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.11
   },
   {
     "id": "goal-random-stroll",
@@ -229,7 +257,8 @@
     "description": "Makes an entity wander to random nearby positions.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-follow-parent",
@@ -237,7 +266,8 @@
     "description": "Makes a baby animal follow its parent entity.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-melee-attack",
@@ -245,7 +275,8 @@
     "description": "Drives an entity to approach and melee attack its current target.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.11
   },
   {
     "id": "goal-panic",
@@ -253,7 +284,8 @@
     "description": "Makes an entity flee erratically after taking damage or when threatened.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-avoid-entity",
@@ -261,7 +293,8 @@
     "description": "Makes an entity actively avoid a specified type of entity.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-follow-owner",
@@ -269,7 +302,8 @@
     "description": "Makes a tamed entity follow its owner.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-look-at-entity",
@@ -277,7 +311,8 @@
     "description": "Makes an entity turn its head to look at a nearby entity; implemented via the Look Control system.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-random-look-around",
@@ -285,7 +320,8 @@
     "description": "Makes an entity periodically look in a random direction; implemented via the Look Control system.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-eat-block",
@@ -293,7 +329,8 @@
     "description": "Makes an entity eat a block (e.g. grass) from the world.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-tempt",
@@ -301,7 +338,8 @@
     "description": "Makes an entity move toward a player holding a tempting item.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-breed",
@@ -309,7 +347,8 @@
     "description": "Drives breeding behavior between two nearby entities in love mode.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.11
   },
   {
     "id": "goal-beg",
@@ -317,7 +356,8 @@
     "description": "Makes an entity (e.g. tamed wolf) beg when a player holds food nearby.",
     "category": "entities",
     "subCategory": "ai-goal",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-nearest-attackable-target",
@@ -325,7 +365,8 @@
     "description": "Selects the nearest valid attackable entity as a target.",
     "category": "entities",
     "subCategory": "ai-target",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.11
   },
   {
     "id": "goal-hurt-by-target",
@@ -333,7 +374,8 @@
     "description": "Sets the entity that damaged this mob as its target.",
     "category": "entities",
     "subCategory": "ai-target",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "goal-owner-hurt-target",
@@ -341,7 +383,8 @@
     "description": "Sets a tamed entity's target to whatever damaged its owner.",
     "category": "entities",
     "subCategory": "ai-target",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.08
   },
   {
     "id": "server-inventories",
@@ -349,7 +392,8 @@
     "description": "Server-side inventory systems (chests, furnaces, etc.) and particle effect handling.",
     "category": "server",
     "subCategory": "gameplay",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.35
   },
   {
     "id": "server-chat",
@@ -357,7 +401,8 @@
     "description": "Server-side chat message handling and broadcast.",
     "category": "server",
     "subCategory": "gameplay",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.3
   },
   {
     "id": "command-senders",
@@ -365,7 +410,8 @@
     "description": "Support for Players, Console, and RCON as valid command senders, plus the Serverbound Chat Command packet.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.3
   },
   {
     "id": "cmd-advancement",
@@ -373,7 +419,8 @@
     "description": "Grants, revokes, or queries player advancements.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-attribute",
@@ -381,7 +428,8 @@
     "description": "Queries or modifies entity attributes and their modifiers.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-ban",
@@ -389,7 +437,8 @@
     "description": "Bans a player from the server.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-ban-ip",
@@ -397,7 +446,8 @@
     "description": "Bans an IP address from the server.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-banlist",
@@ -405,7 +455,8 @@
     "description": "Lists banned players or IP addresses.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-bossbar",
@@ -413,7 +464,8 @@
     "description": "Creates and modifies boss bars.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-clear",
@@ -421,7 +473,8 @@
     "description": "Clears items from player inventories.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-clone",
@@ -429,7 +482,8 @@
     "description": "Copies blocks from one region to another.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-damage",
@@ -437,7 +491,8 @@
     "description": "Deals damage to entities.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-data",
@@ -445,7 +500,8 @@
     "description": "Gets, merges, modifies, and removes block entity, entity, and command storage NBT data.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.25
   },
   {
     "id": "cmd-datapack",
@@ -453,7 +509,8 @@
     "description": "Controls loaded data packs.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-debug",
@@ -461,7 +518,8 @@
     "description": "Starts or stops a debugging session that outputs profiling information.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "optional"
+    "compliance": "optional",
+    "weight": 0.05
   },
   {
     "id": "cmd-defaultgamemode",
@@ -469,7 +527,8 @@
     "description": "Sets the default game mode for new players.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-deop",
@@ -477,7 +536,8 @@
     "description": "Revokes operator status from a player.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-dialog",
@@ -485,7 +545,8 @@
     "description": "Shows a dialog to players.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-difficulty",
@@ -493,7 +554,8 @@
     "description": "Sets the world difficulty.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-effect",
@@ -501,7 +563,8 @@
     "description": "Adds or removes status effects on entities.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-enchant",
@@ -509,7 +572,8 @@
     "description": "Enchants a player's held item.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-execute",
@@ -517,7 +581,8 @@
     "description": "Executes another command with modified execution context, conditions, and redirection.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.3
   },
   {
     "id": "cmd-experience",
@@ -525,7 +590,8 @@
     "description": "Adds, sets, or queries player experience/levels.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-fetchprofile",
@@ -533,7 +599,8 @@
     "description": "Downloads player profiles by name from external servers.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "optional"
+    "compliance": "optional",
+    "weight": 0.05
   },
   {
     "id": "cmd-fill",
@@ -541,7 +608,8 @@
     "description": "Fills a region with a specific block.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-fillbiome",
@@ -549,7 +617,8 @@
     "description": "Fills a region with a specific biome.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-forceload",
@@ -557,7 +626,8 @@
     "description": "Forces chunks to constantly be loaded or not.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-function",
@@ -565,7 +635,8 @@
     "description": "Runs a function or function tag.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-gamemode",
@@ -573,7 +644,8 @@
     "description": "Sets a player's game mode.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-gamerule",
@@ -581,7 +653,8 @@
     "description": "Sets or queries a game rule value.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-give",
@@ -589,7 +662,8 @@
     "description": "Gives items to a player.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-help",
@@ -597,7 +671,8 @@
     "description": "Lists available commands or shows usage for a specific command.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-item",
@@ -605,7 +680,8 @@
     "description": "Manipulates items in block or entity inventories.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-jfr",
@@ -613,7 +689,8 @@
     "description": "Starts or stops a Java Flight Recorder profiling session.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "optional"
+    "compliance": "optional",
+    "weight": 0.05
   },
   {
     "id": "cmd-kick",
@@ -621,7 +698,8 @@
     "description": "Kicks a player from the server.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-kill",
@@ -629,7 +707,8 @@
     "description": "Kills entities (players, mobs, items, etc.).",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-list",
@@ -637,7 +716,8 @@
     "description": "Lists players currently on the server.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-locate",
@@ -645,7 +725,8 @@
     "description": "Locates the nearest structure, biome, or point of interest.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-loot",
@@ -653,7 +734,8 @@
     "description": "Generates loot from loot tables and places it in the world or inventories.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-me",
@@ -661,7 +743,8 @@
     "description": "Displays a message emoting the sender's action.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-msg",
@@ -669,7 +752,8 @@
     "description": "Sends a private message to another player.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-op",
@@ -677,7 +761,8 @@
     "description": "Grants operator status to a player.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-pardon",
@@ -685,7 +770,8 @@
     "description": "Unbans a player.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-pardon-ip",
@@ -693,7 +779,8 @@
     "description": "Unbans an IP address.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-particle",
@@ -701,7 +788,8 @@
     "description": "Spawns particle effects in the world.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-perf",
@@ -709,7 +797,8 @@
     "description": "Captures a short performance profiling snapshot.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "optional"
+    "compliance": "optional",
+    "weight": 0.05
   },
   {
     "id": "cmd-place",
@@ -717,7 +806,8 @@
     "description": "Places a structure, jigsaw, template, or feature at a location.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-playsound",
@@ -725,7 +815,8 @@
     "description": "Plays a sound effect to players.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-publish",
@@ -733,7 +824,8 @@
     "description": "Opens the world to LAN.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-random",
@@ -741,7 +833,8 @@
     "description": "Generates random numbers or sequences.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-recipe",
@@ -749,7 +842,8 @@
     "description": "Gives or takes away recipes known by a player.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-reload",
@@ -757,7 +851,8 @@
     "description": "Reloads datapacks.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-return",
@@ -765,7 +860,8 @@
     "description": "Sets the return value/result for a function.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-ride",
@@ -773,7 +869,8 @@
     "description": "Mounts, dismounts, or evicts entities from vehicles.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-rotate",
@@ -781,7 +878,8 @@
     "description": "Rotates entities to face a direction or location.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-save-all",
@@ -789,7 +887,8 @@
     "description": "Saves the world to disk.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-save-off",
@@ -797,7 +896,8 @@
     "description": "Disables automatic world saving.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-save-on",
@@ -805,7 +905,8 @@
     "description": "Re-enables automatic world saving.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-say",
@@ -813,7 +914,8 @@
     "description": "Broadcasts a message to all players.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-schedule",
@@ -821,7 +923,8 @@
     "description": "Delays the execution of a function.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-scoreboard",
@@ -829,7 +932,8 @@
     "description": "Manages scoreboard objectives, players, and teams display.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.25
   },
   {
     "id": "cmd-seed",
@@ -837,7 +941,8 @@
     "description": "Displays the world seed.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.03
   },
   {
     "id": "cmd-setblock",
@@ -845,7 +950,8 @@
     "description": "Sets a single block in the world.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-setidletimeout",
@@ -853,7 +959,8 @@
     "description": "Sets the automatic kick timeout for idle players.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-setworldspawn",
@@ -861,7 +968,8 @@
     "description": "Sets the world spawn point.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-spawnpoint",
@@ -869,7 +977,8 @@
     "description": "Sets a player's individual spawn point.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-spectate",
@@ -877,7 +986,8 @@
     "description": "Makes a spectator-mode player spectate an entity.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-spreadplayers",
@@ -885,7 +995,8 @@
     "description": "Teleports entities to random spread-out locations.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-stop",
@@ -893,7 +1004,8 @@
     "description": "Stops the server gracefully.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-stopsound",
@@ -901,7 +1013,8 @@
     "description": "Stops sounds currently playing for players.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-summon",
@@ -909,7 +1022,8 @@
     "description": "Summons an entity.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-tag",
@@ -917,7 +1031,8 @@
     "description": "Adds or removes scoreboard tags from entities.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-team",
@@ -925,7 +1040,8 @@
     "description": "Manages scoreboard teams and their membership/options.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-teammsg",
@@ -933,7 +1049,8 @@
     "description": "Sends a message to a player's own team.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-teleport",
@@ -941,7 +1058,8 @@
     "description": "Teleports entities to a location, entity, or with rotation/facing options.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-tell",
@@ -949,7 +1067,8 @@
     "description": "Alias of /msg; sends a private message to another player.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.03
   },
   {
     "id": "cmd-tellraw",
@@ -957,7 +1076,8 @@
     "description": "Sends a raw JSON text component message to players.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-test",
@@ -965,7 +1085,8 @@
     "description": "Runs, creates, and manages gametest test instances.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "optional"
+    "compliance": "optional",
+    "weight": 0.05
   },
   {
     "id": "cmd-tick",
@@ -973,7 +1094,8 @@
     "description": "Controls the server's tick rate, freezing, and stepping.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-time",
@@ -981,7 +1103,8 @@
     "description": "Sets, adds to, or queries the world time.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-title",
@@ -989,7 +1112,8 @@
     "description": "Manages titles displayed to players.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-tm",
@@ -997,7 +1121,8 @@
     "description": "Alias of /teammsg.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.03
   },
   {
     "id": "cmd-transfer",
@@ -1005,7 +1130,8 @@
     "description": "Transfers players to another server.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-trigger",
@@ -1013,7 +1139,8 @@
     "description": "Sets a trigger-type scoreboard objective's value, usable by non-op players.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-unpublish",
@@ -1021,7 +1148,8 @@
     "description": "Closes the LAN world.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-version",
@@ -1029,7 +1157,8 @@
     "description": "Displays the server/game version.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.03
   },
   {
     "id": "cmd-w",
@@ -1037,7 +1166,8 @@
     "description": "Alias of /msg.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.03
   },
   {
     "id": "cmd-waypoint",
@@ -1045,7 +1175,8 @@
     "description": "Manages waypoints shown on the locator bar/map.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.15
   },
   {
     "id": "cmd-weather",
@@ -1053,7 +1184,8 @@
     "description": "Sets the weather.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.05
   },
   {
     "id": "cmd-whitelist",
@@ -1061,7 +1193,8 @@
     "description": "Manages the server whitelist.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.1
   },
   {
     "id": "cmd-worldborder",
@@ -1069,7 +1202,8 @@
     "description": "Manages the world border size, center, and warning settings.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.2
   },
   {
     "id": "cmd-xp",
@@ -1077,7 +1211,8 @@
     "description": "Alias of /experience.",
     "category": "server",
     "subCategory": "commands",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.03
   },
   {
     "id": "server-permissions",
@@ -1085,7 +1220,8 @@
     "description": "Operator levels for command access control.",
     "category": "server",
     "subCategory": "admin",
-    "compliance": "required"
+    "compliance": "required",
+    "weight": 0.3
   },
   {
     "id": "server-translations",
@@ -1093,6 +1229,7 @@
     "description": "Localization/translation key support for client-displayed text.",
     "category": "server",
     "subCategory": "gameplay",
-    "compliance": "optional"
+    "compliance": "optional",
+    "weight": 0.1
   }
 ]
