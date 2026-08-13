@@ -130,14 +130,15 @@ h1 {
     color: var(--text);
 }
 
-.compliance-rules {
+.compliance-rules,
+.status-rules {
     background: radial-gradient(circle at top, #1b1f22, #121417);
     border-bottom: 2px solid var(--border);
     padding: 36px 24px 40px;
 }
 
 .rules-inner {
-    max-width: 1100px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -203,8 +204,20 @@ h1 {
     color: var(--slate);
 }
 
+.rule-active .rule-label {
+    color: var(--green-hi);
+}
+
+.rule-wip .rule-label {
+    color: var(--gold-hi);
+}
+
+.rule-inactive .rule-label {
+    color: var(--red-hi);
+}
+
 main {
-    max-width: 1100px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 40px 24px 80px;
 }
@@ -226,7 +239,8 @@ main {
     font-size: 9px;
     color: var(--muted);
     margin-right: 4px;
-    min-width: 70px;
+    min-width: 100px;
+    flex-shrink: 0;
 }
 
 .filter-btn {
@@ -306,6 +320,69 @@ main {
     border-color: #2a4a1e;
     border-top-color: #101e08;
     border-left-color: #101e08;
+}
+
+.filter-btn.version-dynamic.active {
+    background: var(--btn-color);
+    border-color: var(--btn-color);
+    border-top-color: var(--btn-color-dark);
+    border-left-color: var(--btn-color-dark);
+}
+
+.filter-btn.status-active.active {
+    background: #1e5a1a;
+    border-color: #1e5a1a;
+    border-top-color: #0a2a08;
+    border-left-color: #0a2a08;
+}
+
+.filter-btn.status-wip.active {
+    background: #6a5600;
+    border-color: #6a5600;
+    border-top-color: #332900;
+    border-left-color: #332900;
+}
+
+.filter-btn.status-inactive.active {
+    background: #5a2020;
+    border-color: #5a2020;
+    border-top-color: #2a0a0a;
+    border-left-color: #2a0a0a;
+}
+
+.filter-btn.comp-full.active {
+    background: #1f4a18;
+    border-color: #1f4a18;
+    border-top-color: #0a2005;
+    border-left-color: #0a2005;
+}
+
+.filter-btn.comp-mostly.active {
+    background: #5a4a00;
+    border-color: #5a4a00;
+    border-top-color: #2a2000;
+    border-left-color: #2a2000;
+}
+
+.filter-btn.comp-partial.active {
+    background: #6a3a10;
+    border-color: #6a3a10;
+    border-top-color: #301a08;
+    border-left-color: #301a08;
+}
+
+.filter-btn.comp-experimental.active {
+    background: #5a1a1a;
+    border-color: #5a1a1a;
+    border-top-color: #2a0a0a;
+    border-left-color: #2a0a0a;
+}
+
+.filter-btn.comp-forked.active {
+    background: #2f3944;
+    border-color: #2f3944;
+    border-top-color: #161b20;
+    border-left-color: #161b20;
 }
 
 .servers-grid {

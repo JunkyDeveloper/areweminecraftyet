@@ -10,6 +10,9 @@ const COMPLIANCE_LABELS = {
 };
 let activeLang = "all";
 let activeType = "all";
+let activeStatus = "all";
+let activeCompliance = "all";
+let activeVersion = "all";
 let SERVERS = [];
 
 function parseFeaturesYAML(text) {
@@ -81,6 +84,9 @@ function buildCards() {
         card.className = "card";
         card.dataset.lang = s.language;
         card.dataset.type = s.type;
+        card.dataset.status = s.status;
+        card.dataset.compliance = s.compliance;
+        card.dataset.version = s.mcVersion;
 
         const forkNoteHTML = s.forkNote
             ? `<div class="card-fork-note">&#9888; This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance.</div>`
@@ -128,7 +134,10 @@ function applyFilters() {
     cards.forEach(card => {
         const langMatch = activeLang === "all" || card.dataset.lang === activeLang;
         const typeMatch = activeType === "all" || card.dataset.type === activeType;
-        const show = langMatch && typeMatch;
+        const statusMatch = activeStatus === "all" || card.dataset.status === activeStatus;
+        const complianceMatch = activeCompliance === "all" || card.dataset.compliance === activeCompliance;
+        const versionMatch = activeVersion === "all" || card.dataset.version === activeVersion;
+        const show = langMatch && typeMatch && statusMatch && complianceMatch && versionMatch;
         card.classList.toggle("hidden", !show);
         if (show) visible++;
     });
@@ -166,11 +175,70 @@ document.querySelectorAll("[data-filter-type]").forEach(btn => {
     });
 });
 
+document.querySelectorAll("[data-filter-status]").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-filter-status]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeStatus = btn.dataset.filterStatus;
+        applyFilters();
+    });
+});
+
+document.querySelectorAll("[data-filter-compliance]").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-filter-compliance]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeCompliance = btn.dataset.filterCompliance;
+        applyFilters();
+    });
+});
+
+document.querySelectorAll("[data-filter-version]").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-filter-version]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeVersion = btn.dataset.filterVersion;
+        applyFilters();
+    });
+});
+
+function hashHue(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return Math.abs(hash) % 360;
+}
+
+function buildVersionFilters() {
+    const row = document.getElementById("version-filter-row");
+    const versions = [...new Set(SERVERS.map(s => s.mcVersion))]
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+    versions.forEach(version => {
+        const hue = hashHue(version);
+        const btn = document.createElement("button");
+        btn.className = "filter-btn version-dynamic";
+        btn.dataset.filterVersion = version;
+        btn.textContent = version;
+        btn.style.setProperty("--btn-color", `hsl(${hue}, 45%, 28%)`);
+        btn.style.setProperty("--btn-color-dark", `hsl(${hue}, 45%, 12%)`);
+        btn.addEventListener("click", () => {
+            document.querySelectorAll("[data-filter-version]").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeVersion = version;
+            applyFilters();
+        });
+        row.appendChild(btn);
+    });
+}
+
 fetch("servers.json")
     .then(r => r.json())
     .then(async data => {
         SERVERS = data.servers;
         await Promise.all(SERVERS.map(loadServerCompliance));
+        buildVersionFilters();
         buildCards();
         updateVerdict();
     });

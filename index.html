@@ -64,6 +64,27 @@
         </div>
     </section>
 
+    <section class="status-rules">
+        <div class="rules-inner">
+            <div class="rules-title">Status Categories</div>
+            <p class="rules-sub">Status reflects how recently a server has seen development activity.</p>
+            <div class="rules-grid">
+                <div class="rule-card rule-active">
+                    <div class="rule-label">Active</div>
+                    <p class="rule-text">Consistent activity within the last month.</p>
+                </div>
+                <div class="rule-card rule-wip">
+                    <div class="rule-label">WIP</div>
+                    <p class="rule-text">Consistent activity within the last 2 months.</p>
+                </div>
+                <div class="rule-card rule-inactive">
+                    <div class="rule-label">Inactive</div>
+                    <p class="rule-text">No consistent activity for 4 months or more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <main>
         <div class="filter-group">
             <div class="filter-row">
@@ -79,6 +100,26 @@
                 <button class="filter-btn active" data-filter-type="all">All</button>
                 <button class="filter-btn type-reimpl" data-filter-type="reimplementation">Reimplementation</button>
                 <button class="filter-btn type-fork" data-filter-type="fork">Fork</button>
+            </div>
+            <div class="filter-row">
+                <span class="filter-label">Status</span>
+                <button class="filter-btn active" data-filter-status="all">All</button>
+                <button class="filter-btn status-active" data-filter-status="active">Active</button>
+                <button class="filter-btn status-wip" data-filter-status="wip">WIP</button>
+                <button class="filter-btn status-inactive" data-filter-status="inactive">Inactive</button>
+            </div>
+            <div class="filter-row">
+                <span class="filter-label">Compliance</span>
+                <button class="filter-btn active" data-filter-compliance="all">All</button>
+                <button class="filter-btn comp-full" data-filter-compliance="full">Full</button>
+                <button class="filter-btn comp-mostly" data-filter-compliance="mostly">Mostly</button>
+                <button class="filter-btn comp-partial" data-filter-compliance="partial">Partial</button>
+                <button class="filter-btn comp-experimental" data-filter-compliance="experimental">Experimental</button>
+                <button class="filter-btn comp-forked" data-filter-compliance="forked">Forked</button>
+            </div>
+            <div class="filter-row" id="version-filter-row">
+                <span class="filter-label">Version</span>
+                <button class="filter-btn active" data-filter-version="all">All</button>
             </div>
         </div>
 
