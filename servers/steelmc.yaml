@@ -5,6 +5,7 @@
     - protocol-compression
     - world-physics
     - world-state
+    - worldgen
     - player-movement
     - player-state
     - player-inventory
@@ -54,7 +55,6 @@
 - inDev:
     - protocol-timeout
     - world-persistence
-    - worldgen
     - redstone
     - world-hud
     - player-progression
