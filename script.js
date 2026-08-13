@@ -8,12 +8,23 @@ const COMPLIANCE_LABELS = {
     experimental: "Experimental",
     forked: "Forked",
 };
+const CATEGORY_LABELS = {
+    server: "Server",
+    networking: "Networking",
+    world: "World",
+    player: "Player",
+    combat: "Combat",
+    entities: "Entities & AI",
+};
+const CATEGORY_ORDER = ["networking", "world", "player", "combat", "entities", "server"];
+const FEATURE_BUCKET_LABELS = { complete: "Complete", inDev: "In Development", incomplete: "Missing" };
 let activeLang = "all";
 let activeType = "all";
 let activeStatus = "all";
 let activeCompliance = "all";
 let activeVersion = "all";
 let SERVERS = [];
+let FEATURES_BY_ID = {};
 
 function parseFeaturesYAML(text) {
     const features = { complete: [], inDev: [], incomplete: [] };
@@ -57,6 +68,7 @@ function computeCompliance(features) {
 async function loadServerCompliance(server) {
     server.compliance = server.type === "fork" ? "forked" : "experimental";
     server.complianceScore = 0;
+    server.features = null;
 
     if (server.type === "fork") return;
 
@@ -64,9 +76,11 @@ async function loadServerCompliance(server) {
         const res = await fetch(`servers/${server.id}.yaml`);
         if (!res.ok) return;
 
-        const result = computeCompliance(parseFeaturesYAML(await res.text()));
+        const features = parseFeaturesYAML(await res.text());
+        const result = computeCompliance(features);
         if (!result) return;
 
+        server.features = features;
         server.complianceScore = result.score;
         server.compliance = result.compliance;
     } catch (err) {
@@ -87,6 +101,9 @@ function buildCards() {
         card.dataset.status = s.status;
         card.dataset.compliance = s.compliance;
         card.dataset.version = s.mcVersion;
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-label", `View compliance details for ${s.name}`);
 
         const forkNoteHTML = s.forkNote
             ? `<div class="card-fork-note">&#9888; This is a fork of vanilla Minecraft. Forks are listed for completeness but are unlikely candidates for full compliance.</div>`
@@ -119,7 +136,17 @@ function buildCards() {
                 <span class="card-compliant ${s.compliance === "full" ? "yes" : "no"}">${s.compliance === "full" ? "Compliant" : "Not Compliant"}</span>
                 <a class="card-source" href="${s.url}" target="_blank" rel="noopener">${s.sourceLabel} &rarr;</a>
             </div>
+            <div class="card-details-hint">View details &rarr;</div>
         `;
+
+        card.querySelector(".card-source").addEventListener("click", e => e.stopPropagation());
+        card.addEventListener("click", () => openServerModal(s));
+        card.addEventListener("keydown", e => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openServerModal(s);
+            }
+        });
 
         grid.insertBefore(card, empty);
     });
@@ -233,14 +260,128 @@ function buildVersionFilters() {
     });
 }
 
-fetch("servers.json")
-    .then(r => r.json())
-    .then(async data => {
-        SERVERS = data.servers;
-        await Promise.all(SERVERS.map(loadServerCompliance));
-        buildVersionFilters();
-        buildCards();
-        updateVerdict();
+function groupFeaturesByCategory(ids) {
+    const groups = {};
+
+    ids.forEach(id => {
+        const feature = FEATURES_BY_ID[id];
+        if (!feature) return;
+        (groups[feature.category] ??= []).push(feature);
     });
+
+    Object.values(groups).forEach(list =>
+        list.sort((a, b) => a.subCategory.localeCompare(b.subCategory) || a.name.localeCompare(b.name))
+    );
+
+    return CATEGORY_ORDER
+        .filter(cat => groups[cat]?.length)
+        .map(cat => ({ category: cat, features: groups[cat] }));
+}
+
+function renderFeatureBucket(bucketKey, ids, defaultOpen) {
+    if (!ids.length) return "";
+
+    const groups = groupFeaturesByCategory(ids);
+    const categoriesHTML = groups.map(({ category, features }) => `
+        <div class="modal-category">
+            <div class="modal-category-title">${CATEGORY_LABELS[category] ?? category}</div>
+            <ul class="modal-feature-list">
+                ${features.map(f => `
+                    <li class="modal-feature modal-feature-${bucketKey}">
+                        <span class="modal-feature-name">${f.name}</span>
+                        <span class="modal-feature-desc">${f.description}</span>
+                    </li>
+                `).join("")}
+            </ul>
+        </div>
+    `).join("");
+
+    return `
+        <details class="modal-bucket modal-bucket-${bucketKey}" ${defaultOpen ? "open" : ""}>
+            <summary>${FEATURE_BUCKET_LABELS[bucketKey]} <span class="modal-bucket-count">${ids.length}</span></summary>
+            ${categoriesHTML}
+        </details>
+    `;
+}
+
+function renderModalBody(server) {
+    const complianceLabel = COMPLIANCE_LABELS[server.compliance] ?? "Unknown";
+    const complianceDisplay = server.complianceScore.toFixed(1).replace(/\.0$/, "");
+
+    const header = `
+        <div class="modal-header">
+            <div class="modal-title" id="modal-title">${server.name}</div>
+            <div class="card-meta">
+                <span class="badge badge-lang-${server.language}">${LANG_LABELS[server.language] ?? server.language}</span>
+                <span class="badge badge-type-${server.type === "reimplementation" ? "reimpl" : "fork"}">${TYPE_LABELS[server.type]}</span>
+                <span class="badge badge-version">MC ${server.mcVersion}</span>
+                <span class="badge badge-status-${server.status}">${STATUS_LABELS[server.status]}</span>
+                <span class="badge badge-compliance badge-compliance-${server.compliance}">Compliance: ${complianceLabel}</span>
+            </div>
+            <p class="card-desc">${server.description}</p>
+            <a class="card-source" href="${server.url}" target="_blank" rel="noopener">${server.sourceLabel} &rarr;</a>
+        </div>
+    `;
+
+    if (!server.features) {
+        const message = server.type === "fork"
+            ? "Forks intentionally diverge from vanilla behavior, so feature-by-feature compliance isn't tracked for this entry."
+            : "No feature data is available for this server yet.";
+        return `${header}<p class="modal-empty">${message}</p>`;
+    }
+
+    const { complete, inDev, incomplete } = server.features;
+
+    return `
+        ${header}
+        <div class="modal-summary">
+            <div class="compliance-meter-row">
+                <div class="compliance-meter" aria-hidden="true">
+                    <span class="compliance-fill compliance-${server.compliance}" style="width: ${server.complianceScore}%;"></span>
+                </div>
+                <span class="compliance-percent">${complianceDisplay}%</span>
+            </div>
+        </div>
+        ${renderFeatureBucket("incomplete", incomplete, true)}
+        ${renderFeatureBucket("inDev", inDev, true)}
+        ${renderFeatureBucket("complete", complete, false)}
+    `;
+}
+
+function openServerModal(server) {
+    const overlay = document.getElementById("modal-overlay");
+    const body = document.getElementById("modal-body");
+    body.innerHTML = renderModalBody(server);
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+    document.getElementById("modal-close").focus();
+}
+
+function closeServerModal() {
+    const overlay = document.getElementById("modal-overlay");
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+document.getElementById("modal-close").addEventListener("click", closeServerModal);
+document.getElementById("modal-overlay").addEventListener("click", e => {
+    if (e.target.id === "modal-overlay") closeServerModal();
+});
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeServerModal();
+});
+
+Promise.all([
+    fetch("servers.json").then(r => r.json()),
+    fetch("features.json").then(r => r.json()),
+]).then(async ([serverData, featureData]) => {
+    SERVERS = serverData.servers;
+    featureData.forEach(f => { FEATURES_BY_ID[f.id] = f; });
+
+    await Promise.all(SERVERS.map(loadServerCompliance));
+    buildVersionFilters();
+    buildCards();
+    updateVerdict();
+});
 
 
