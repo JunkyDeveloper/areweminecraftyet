@@ -140,3 +140,15 @@
     - cmd-whitelist
     - cmd-worldborder
     - cmd-xp
+    - crafting-recipes
+    - loot-tables
+    - villager-trading
+    - portals
+    - status-effects
+    - enchanting-table
+    - brewing
+    - farming
+    - scoreboard-criteria
+    - vehicles
+    - weather
+    - sleep

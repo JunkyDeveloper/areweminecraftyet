@@ -53,6 +53,12 @@
     - cmd-time
     - cmd-weather
     - cmd-xp
+    - crafting-recipes
+    - loot-tables
+    - portals
+    - status-effects
+    - farming
+    - sleep
 
 - inDev:
     - redstone
@@ -65,6 +71,8 @@
     - goal-melee-attack
     - goal-avoid-entity
     - cmd-locate
+    - vehicles
+    - weather
 
 - incomplete:
     - admin-remote
@@ -140,3 +148,7 @@
     - cmd-waypoint
     - cmd-whitelist
     - cmd-worldborder
+    - villager-trading
+    - enchanting-table
+    - brewing
+    - scoreboard-criteria

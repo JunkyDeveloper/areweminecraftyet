@@ -1231,5 +1231,113 @@
     "subCategory": "gameplay",
     "compliance": "optional",
     "weight": 0.1
+  },
+  {
+    "id": "crafting-recipes",
+    "name": "Crafting & Recipes",
+    "description": "Crafting table/inventory recipe matching, including shaped, shapeless, smithing, and stonecutting recipes.",
+    "category": "server",
+    "subCategory": "gameplay",
+    "compliance": "required",
+    "weight": 0.45
+  },
+  {
+    "id": "loot-tables",
+    "name": "Loot Tables",
+    "description": "Loot table resolution used by mob drops, chest generation, block drops, and fishing, including pools, conditions, and functions.",
+    "category": "world",
+    "subCategory": "gameplay",
+    "compliance": "required",
+    "weight": 0.4
+  },
+  {
+    "id": "villager-trading",
+    "name": "Villager Trading",
+    "description": "Villager trade offers, professions, workstation-based restocking, and price adjustments.",
+    "category": "entities",
+    "subCategory": "trading",
+    "compliance": "required",
+    "weight": 0.35
+  },
+  {
+    "id": "portals",
+    "name": "Portals",
+    "description": "Nether portal frame detection/linking and End portal activation for dimension travel.",
+    "category": "world",
+    "subCategory": "logic",
+    "compliance": "required",
+    "weight": 0.3
+  },
+  {
+    "id": "status-effects",
+    "name": "Status Effects",
+    "description": "Status effect application, stacking, duration/tick handling, and per-effect behavior (e.g. poison, speed, night vision).",
+    "category": "combat",
+    "subCategory": "effects",
+    "compliance": "required",
+    "weight": 0.25
+  },
+  {
+    "id": "enchanting-table",
+    "name": "Enchanting Table",
+    "description": "Enchanting table UI, lapis/XP cost, and bookshelf power calculation.",
+    "category": "player",
+    "subCategory": "gameplay",
+    "compliance": "required",
+    "weight": 0.25
+  },
+  {
+    "id": "brewing",
+    "name": "Brewing",
+    "description": "Brewing stand mechanics, potion ingredients, and splash/lingering potion variants.",
+    "category": "player",
+    "subCategory": "gameplay",
+    "compliance": "required",
+    "weight": 0.25
+  },
+  {
+    "id": "farming",
+    "name": "Farming & Crop Growth",
+    "description": "Crop growth stages, bonemeal, farmland hydration/tilling, and crop trampling.",
+    "category": "world",
+    "subCategory": "gameplay",
+    "compliance": "required",
+    "weight": 0.25
+  },
+  {
+    "id": "scoreboard-criteria",
+    "name": "Scoreboard Criteria",
+    "description": "Automatic scoreboard objective tracking (e.g. deathCount, playerKillCount) beyond manual /scoreboard management.",
+    "category": "server",
+    "subCategory": "gameplay",
+    "compliance": "required",
+    "weight": 0.2
+  },
+  {
+    "id": "vehicles",
+    "name": "Vehicles",
+    "description": "Boat and minecart riding physics, rail-following, and passenger synchronization.",
+    "category": "entities",
+    "subCategory": "vehicles",
+    "compliance": "required",
+    "weight": 0.2
+  },
+  {
+    "id": "weather",
+    "name": "Weather Mechanics",
+    "description": "Rain/thunder gameplay effects: crop hydration, fire extinguishing, lightning strikes, and thunderstorm mob spawning.",
+    "category": "world",
+    "subCategory": "state",
+    "compliance": "required",
+    "weight": 0.15
+  },
+  {
+    "id": "sleep",
+    "name": "Sleep",
+    "description": "Bed sleeping validity, sleep-percentage night skip, and bed-based respawn point setting.",
+    "category": "world",
+    "subCategory": "state",
+    "compliance": "required",
+    "weight": 0.1
   }
 ]

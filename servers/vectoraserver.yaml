@@ -140,3 +140,15 @@
     - cmd-worldborder
     - cmd-xp
     - server-translations
+    - crafting-recipes
+    - loot-tables
+    - villager-trading
+    - portals
+    - status-effects
+    - enchanting-table
+    - brewing
+    - farming
+    - scoreboard-criteria
+    - vehicles
+    - weather
+    - sleep

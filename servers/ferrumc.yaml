@@ -140,3 +140,15 @@
     - redstone
     - server-permissions
     - world-hud
+    - crafting-recipes
+    - loot-tables
+    - villager-trading
+    - portals
+    - status-effects
+    - enchanting-table
+    - brewing
+    - farming
+    - scoreboard-criteria
+    - vehicles
+    - weather
+    - sleep
